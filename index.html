@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Resume Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <select id="templateSwitcher">
+      <option value="template-default">Default</option>
+      <option value="template-modern">Modern</option>
+      <option value="template-elegant">Elegant</option>
+    </select>
+    <label>
+      <input type="checkbox" id="themeToggle" /> Dark Mode
+    </label>
+  </div>
+
+  <div class="container">
+    <div class="form-section">
+      <h2>Build Your Resume</h2>
+
+      <input type="text" placeholder="Full Name" data-target="preview-name" />
+      <input type="text" placeholder="Title" data-target="preview-title" />
+      <textarea placeholder="Profile Summary" data-target="preview-profile"></textarea>
+      <textarea placeholder="Work Experience" data-target="preview-experience"></textarea>
+      <textarea placeholder="Education (e.g., BSc Computer Science)" data-target="preview-education"></textarea>
+      <textarea placeholder="Certifications (e.g., AWS Certified)" data-target="preview-certifications"></textarea>
+
+      <input type="text" placeholder="Email" data-target="preview-email" />
+      <input type="text" placeholder="Phone Number" data-target="preview-phone" />
+      <input type="text" placeholder="GitHub" data-target="preview-github" />
+      <input type="text" placeholder="LinkedIn" data-target="preview-linkedin" />
+
+      <input type="file" id="photoUpload" accept="image/*" />
+
+      <button id="downloadBtn">Download PDF</button>
+    </div>
+
+    <div class="resume-wrapper">
+      <div class="resume template-default" id="resume">
+        <div class="left-column">
+          <div class="photo-wrapper">
+            <img id="preview-photo" alt="Profile Photo" />
+          </div>
+          <div class="contact-info">
+            <h3>Contact</h3>
+            <p>Email: <span id="preview-email">your@email.com</span></p>
+            <p>Phone: <span id="preview-phone">123-456-7890</span></p>
+            <p>GitHub: <span id="preview-github">github.com/yourhandle</span></p>
+            <p>LinkedIn: <span id="preview-linkedin">linkedin.com/in/yourprofile</span></p>
+          </div>
+        </div>
+
+        <div class="right-column" id="sortable-sections">
+          <div class="section" id="section-name">
+            <h1 id="preview-name">Your Name</h1>
+            <h2 id="preview-title">Your Title</h2>
+          </div>
+
+          <div class="section" id="section-profile">
+            <h3>Profile</h3>
+            <div id="preview-profile" class="multiline">Your profile summary will show up here...</div>
+          </div>
+
+          <div class="section" id="section-experience">
+            <h3>Work Experience</h3>
+            <div id="preview-experience" class="multiline">Your experience will show here...</div>
+          </div>
+
+          <div class="section" id="section-education">
+            <h3>Education</h3>
+            <div id="preview-education" class="multiline">Your education details...</div>
+          </div>
+
+          <div class="section" id="section-certifications">
+            <h3>Certifications</h3>
+            <div id="preview-certifications" class="multiline">Your certifications...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
